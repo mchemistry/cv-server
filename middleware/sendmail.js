@@ -38,7 +38,7 @@ module.exports = {
                 if (error) {
                   res.status(404).json({
                       success: false,
-                      mgs: 'Error: ' + error
+                      msg: 'Error: ' + error
                   })
                 } else {
                   res.status(200).json({
