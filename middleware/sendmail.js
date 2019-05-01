@@ -36,7 +36,7 @@ module.exports = {
                 to: 'do.t.ngochuyen@gmail.com',
                 subject: subject,
                 html: html
-              };
+              };  
               
               await transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
