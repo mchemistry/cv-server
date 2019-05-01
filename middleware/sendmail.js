@@ -13,8 +13,12 @@ module.exports = {
             let email = req.body.email;
             let name = req.body.name;
             let subject = `[From: ${email}] : ${req.body.subject}`;
-            let text = `${name} have just received an invitation from email: ${email}
-                        ${req.body.text}`
+            let html = `<h3 style="color:#002B36">Hey, You have just received an invitation from email: ${email}</h3><br>
+<strong>From:</strong> ${name}<br>
+<strong>Content:</strong> ${req.body.text} <br>
+
+
+<strong style="color: red">NOTE:</strong> click to <span style="color: blue">blue gmail</span> above to reply!`
 
             var transporter = nodemailer.createTransport({
                 host: 'smtp.gmail.com',
@@ -29,9 +33,9 @@ module.exports = {
               
               var mailOptions = {
                 from: email,
-                to: 'mchemistry95@gmail.com',
+                to: 'do.t.ngochuyen@gmail.com',
                 subject: subject,
-                text: text
+                html: html
               };
               
               await transporter.sendMail(mailOptions, function(error, info){
